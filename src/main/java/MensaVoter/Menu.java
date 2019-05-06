@@ -53,4 +53,20 @@ public class Menu {
         }
         return commentValue;
     }
+    public String getType() {
+        return type;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getPrices() {
+        return prices[0] + " STUD, " + prices[1] + " INT, " + prices[2] + " EXT";
+    }
+
 }
