@@ -22,6 +22,7 @@ sourceSets {
         output.resourcesDir = file('bin')
     }
 }
+
 jar {
     manifest {
         attributes 'Main-Class': 'MensaVoter.Main' }
