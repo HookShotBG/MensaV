@@ -1,4 +1,5 @@
 plugins {
+    id 'java-library'
     id 'java'
 }
 
@@ -6,6 +7,29 @@ group 'MensaV'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
+
+task stage {
+    dependsOn build
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/java'
+        }
+        output.resourcesDir = file('bin')
+    }
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'MensaVoter.Main' }
+    destinationDir = file('bin')
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
 
 repositories {
     mavenCentral()

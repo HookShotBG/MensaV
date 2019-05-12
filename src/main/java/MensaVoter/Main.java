@@ -1,5 +1,7 @@
 package MensaVoter;
 
+import spark.Spark;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -32,6 +34,10 @@ public class Main {
         System.out.println(mm.getMenu(0).getComments());
 
 
+        int hp = 4567; // Default Port
+        ProcessBuilder processBuilder = new ProcessBuilder(); if (processBuilder.environment().get("PORT") != null) {
+            hp = Integer.parseInt(processBuilder.environment().get("PORT")); }
+        Spark.port(hp);
 
         get("/", (req, res) -> getMenus(mm));
         get("/menucount", (req, res) -> mm.getMenuCount());
