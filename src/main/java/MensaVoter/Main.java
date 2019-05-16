@@ -17,6 +17,7 @@ public class Main {
         }
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("menus", menus);
+
         return te.renderTemplate("today.ftl", data);
     }
 
@@ -32,7 +33,6 @@ public class Main {
         mm.getMenu(0).addComment("Chicken wie Schuhsohle");
         mm.getMenu(0).addComment("Auch Trockenreis braucht Wasser!!");
         System.out.println(mm.getMenu(0).getComments());
-
 
         int hp = 4567; // Default Port
         ProcessBuilder processBuilder = new ProcessBuilder(); if (processBuilder.environment().get("PORT") != null) {
